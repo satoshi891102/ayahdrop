@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Amiri';
+  src: url('https://fonts.gstatic.com/s/amiri/v27/J7aRnpd8CGxBHqUpvrIw74NL.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Amiri';
+  src: url('https://fonts.gstatic.com/s/amiri/v27/J7acnpd8CGxBHp2VkZY4xJ9CGyAa.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-gold: #C9A84C;
+  --color-gold-light: #E8D5A3;
+  --color-dark: #1A1A2E;
+  --color-darker: #0F0F1F;
+  --color-cream: #F5F0E8;
+  --color-accent: #16213E;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: var(--color-darker);
+  color: #E8E8E8;
+}
+
+.arabic-text {
+  font-family: 'Amiri', 'Traditional Arabic', 'Scheherazade New', serif;
+  direction: rtl;
+  line-height: 2.2;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Card export styles - these get captured */
+.card-export {
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+}
