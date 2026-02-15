@@ -322,6 +322,46 @@ export default function Home() {
                 </div>
               </div>
 
+              {/* Share */}
+              <div className="mt-6 pt-6 border-t border-white/10">
+                <h3 className="text-xs text-gray-500 uppercase tracking-widest mb-3">Share</h3>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => {
+                      const text = `"${ayahData.translation}"\n— Surah ${ayahData.surahName} (${ayahData.surahNumber}:${ayahData.ayahNumber})\n\nCreate your own: ayahdrop.vercel.app`;
+                      const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
+                      window.open(url, "_blank");
+                    }}
+                    className="flex-1 py-2 rounded-xl text-sm bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366]/20 transition-colors text-center"
+                  >
+                    WhatsApp
+                  </button>
+                  <button
+                    onClick={() => {
+                      const text = `"${ayahData.translation}"\n\nSurah ${ayahData.surahName} (${ayahData.surahNumber}:${ayahData.ayahNumber})`;
+                      const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent("https://ayahdrop.vercel.app")}`;
+                      window.open(url, "_blank");
+                    }}
+                    className="flex-1 py-2 rounded-xl text-sm bg-white/5 text-gray-300 hover:bg-white/10 transition-colors text-center"
+                  >
+                    𝕏 Post
+                  </button>
+                  <button
+                    onClick={() => {
+                      const text = `"${ayahData.translation}" — Surah ${ayahData.surahName} (${ayahData.surahNumber}:${ayahData.ayahNumber})\n\nayahdrop.vercel.app`;
+                      navigator.clipboard.writeText(text);
+                      const btn = document.activeElement as HTMLButtonElement;
+                      const orig = btn.textContent;
+                      btn.textContent = "Copied!";
+                      setTimeout(() => { btn.textContent = orig; }, 2000);
+                    }}
+                    className="flex-1 py-2 rounded-xl text-sm bg-white/5 text-gray-300 hover:bg-white/10 transition-colors text-center"
+                  >
+                    Copy
+                  </button>
+                </div>
+              </div>
+
               {/* Actions */}
               <div className="mt-6 space-y-3">
                 <button
