@@ -25,6 +25,35 @@ export default function Home() {
   const selectedSurah = SURAHS.find((s) => s.number === surah);
   const maxAyah = selectedSurah?.ayahs || 1;
 
+  // URL-based ayah sharing: ?s=2&a=255 opens directly to that ayah
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const params = new URLSearchParams(window.location.search);
+    const s = params.get("s");
+    const a = params.get("a");
+    if (s && a) {
+      const surahNum = parseInt(s);
+      const ayahNumber = parseInt(a);
+      if (surahNum >= 1 && surahNum <= 114 && ayahNumber >= 1) {
+        handleGenerate(surahNum, ayahNumber);
+      }
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Update URL when viewing a result
+  useEffect(() => {
+    if (state === "result" && ayahData) {
+      const url = new URL(window.location.href);
+      url.searchParams.set("s", ayahData.surahNumber.toString());
+      url.searchParams.set("a", ayahData.ayahNumber.toString());
+      window.history.replaceState({}, "", url.toString());
+    } else if (state === "home") {
+      const url = new URL(window.location.href);
+      url.search = "";
+      window.history.replaceState({}, "", url.toString());
+    }
+  }, [state, ayahData]);
+
   const filteredSurahs = searchQuery
     ? SURAHS.filter(
         (s) =>
@@ -328,7 +357,8 @@ export default function Home() {
                 <div className="flex gap-2">
                   <button
                     onClick={() => {
-                      const text = `"${ayahData.translation}"\n— Surah ${ayahData.surahName} (${ayahData.surahNumber}:${ayahData.ayahNumber})\n\nCreate your own: ayahdrop.vercel.app`;
+                      const shareUrl = `https://ayahdrop.vercel.app?s=${ayahData.surahNumber}&a=${ayahData.ayahNumber}`;
+                      const text = `"${ayahData.translation}"\n— Surah ${ayahData.surahName} (${ayahData.surahNumber}:${ayahData.ayahNumber})\n\n${shareUrl}`;
                       const url = `https://wa.me/?text=${encodeURIComponent(text)}`;
                       window.open(url, "_blank");
                     }}
@@ -338,8 +368,9 @@ export default function Home() {
                   </button>
                   <button
                     onClick={() => {
+                      const shareUrl = `https://ayahdrop.vercel.app?s=${ayahData.surahNumber}&a=${ayahData.ayahNumber}`;
                       const text = `"${ayahData.translation}"\n\nSurah ${ayahData.surahName} (${ayahData.surahNumber}:${ayahData.ayahNumber})`;
-                      const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent("https://ayahdrop.vercel.app")}`;
+                      const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(shareUrl)}`;
                       window.open(url, "_blank");
                     }}
                     className="flex-1 py-2 rounded-xl text-sm bg-white/5 text-gray-300 hover:bg-white/10 transition-colors text-center"
@@ -348,7 +379,8 @@ export default function Home() {
                   </button>
                   <button
                     onClick={() => {
-                      const text = `"${ayahData.translation}" — Surah ${ayahData.surahName} (${ayahData.surahNumber}:${ayahData.ayahNumber})\n\nayahdrop.vercel.app`;
+                      const shareUrl = `https://ayahdrop.vercel.app?s=${ayahData.surahNumber}&a=${ayahData.ayahNumber}`;
+                      const text = `"${ayahData.translation}" — Surah ${ayahData.surahName} (${ayahData.surahNumber}:${ayahData.ayahNumber})\n\n${shareUrl}`;
                       navigator.clipboard.writeText(text);
                       const btn = document.activeElement as HTMLButtonElement;
                       const orig = btn.textContent;
