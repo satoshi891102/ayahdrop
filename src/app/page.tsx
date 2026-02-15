@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
-import { SURAHS, POPULAR_AYAHS, fetchAyah, AyahData } from "@/lib/quran-data";
+import { SURAHS, POPULAR_AYAHS, THEMED_COLLECTIONS, fetchAyah, AyahData } from "@/lib/quran-data";
 import { CARD_STYLES, CardStyle, FREE_STYLES } from "@/lib/card-styles";
 import AyahCard from "@/components/AyahCard";
 import { toPng } from "html-to-image";
@@ -172,6 +172,27 @@ export default function Home() {
                     className="px-3 py-1.5 text-xs rounded-full border border-white/10 hover:border-[var(--color-gold)]/50 hover:bg-[var(--color-gold)]/10 transition-all disabled:opacity-50"
                   >
                     {p.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Themed Collections */}
+            <div className="w-full max-w-xl">
+              <p className="text-xs text-gray-500 uppercase tracking-widest mb-3 text-center">Collections</p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+                {THEMED_COLLECTIONS.map((col) => (
+                  <button
+                    key={col.id}
+                    onClick={() => {
+                      const pick = col.ayahs[Math.floor(Math.random() * col.ayahs.length)];
+                      handleGenerate(pick.surah, pick.ayah);
+                    }}
+                    disabled={loading}
+                    className="px-3 py-3 text-xs rounded-xl border border-white/10 hover:border-[var(--color-gold)]/50 hover:bg-[var(--color-gold)]/5 transition-all disabled:opacity-50 text-center"
+                  >
+                    <span className="block text-lg mb-1">{col.emoji}</span>
+                    <span className="text-gray-300">{col.name}</span>
                   </button>
                 ))}
               </div>

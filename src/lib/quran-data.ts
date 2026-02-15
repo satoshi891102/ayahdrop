@@ -140,6 +140,82 @@ export const POPULAR_AYAHS = [
   { surah: 33, ayah: 56, label: "Allah sends salawat upon the Prophet" },
 ];
 
+// Themed collections for content creators
+export const THEMED_COLLECTIONS = [
+  {
+    id: "patience",
+    name: "Patience & Perseverance",
+    emoji: "🤲",
+    ayahs: [
+      { surah: 2, ayah: 153, label: "Allah is with the patient" },
+      { surah: 94, ayah: 5, label: "With hardship comes ease" },
+      { surah: 2, ayah: 45, label: "Seek help through patience" },
+      { surah: 29, ayah: 69, label: "Those who strive for Us" },
+      { surah: 3, ayah: 200, label: "Be patient and persevere" },
+    ],
+  },
+  {
+    id: "trust",
+    name: "Trust in Allah",
+    emoji: "💎",
+    ayahs: [
+      { surah: 65, ayah: 3, label: "Whoever relies upon Allah" },
+      { surah: 3, ayah: 173, label: "Allah is sufficient for us" },
+      { surah: 3, ayah: 159, label: "Put your trust in Allah" },
+      { surah: 9, ayah: 51, label: "Nothing befalls us except what Allah has decreed" },
+      { surah: 8, ayah: 2, label: "Upon Allah do the believers rely" },
+    ],
+  },
+  {
+    id: "gratitude",
+    name: "Gratitude & Remembrance",
+    emoji: "🌿",
+    ayahs: [
+      { surah: 2, ayah: 152, label: "Remember Me, I will remember you" },
+      { surah: 14, ayah: 7, label: "If you are grateful, I will increase you" },
+      { surah: 13, ayah: 28, label: "In the remembrance of Allah hearts find rest" },
+      { surah: 55, ayah: 13, label: "Which favors will you deny?" },
+      { surah: 93, ayah: 11, label: "As for the blessings of your Lord, proclaim" },
+    ],
+  },
+  {
+    id: "mercy",
+    name: "Mercy & Forgiveness",
+    emoji: "🕊️",
+    ayahs: [
+      { surah: 39, ayah: 53, label: "Do not despair of Allah's mercy" },
+      { surah: 7, ayah: 156, label: "My mercy encompasses all things" },
+      { surah: 2, ayah: 186, label: "I am near — I respond" },
+      { surah: 36, ayah: 58, label: "Peace — from a Merciful Lord" },
+      { surah: 21, ayah: 87, label: "There is no deity except You — glory to You" },
+    ],
+  },
+  {
+    id: "guidance",
+    name: "Guidance & Light",
+    emoji: "🌟",
+    ayahs: [
+      { surah: 24, ayah: 35, label: "Allah is the Light of the heavens and earth" },
+      { surah: 1, ayah: 6, label: "Guide us to the straight path" },
+      { surah: 2, ayah: 256, label: "There is no compulsion in religion" },
+      { surah: 6, ayah: 125, label: "Whomever Allah wills to guide" },
+      { surah: 42, ayah: 52, label: "You guide to a straight path" },
+    ],
+  },
+  {
+    id: "prophet",
+    name: "Love of the Prophet ﷺ",
+    emoji: "🌹",
+    ayahs: [
+      { surah: 33, ayah: 56, label: "Allah sends salawat upon the Prophet" },
+      { surah: 21, ayah: 107, label: "We have not sent you except as a mercy" },
+      { surah: 33, ayah: 21, label: "In the Messenger is a beautiful example" },
+      { surah: 3, ayah: 31, label: "If you love Allah, follow me" },
+      { surah: 48, ayah: 29, label: "Muhammad is the Messenger of Allah" },
+    ],
+  },
+];
+
 export interface AyahData {
   arabic: string;
   translation: string;
