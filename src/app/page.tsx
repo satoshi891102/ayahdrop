@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useCallback, useEffect } from "react";
-import { SURAHS, POPULAR_AYAHS, THEMED_COLLECTIONS, fetchAyah, AyahData } from "@/lib/quran-data";
+import { SURAHS, POPULAR_AYAHS, THEMED_COLLECTIONS, getDailyAyah, fetchAyah, AyahData } from "@/lib/quran-data";
 import { CARD_STYLES, CardStyle, FREE_STYLES } from "@/lib/card-styles";
 import AyahCard from "@/components/AyahCard";
 import { toPng } from "html-to-image";
@@ -159,6 +159,21 @@ export default function Home() {
             <p className="text-lg text-gray-400 mb-10 max-w-lg">
               Generate stunning verse cards with perfect Arabic text and verified translations. Ready to share in seconds.
             </p>
+
+            {/* Daily Ayah */}
+            <div className="w-full max-w-xl mb-8">
+              <button
+                onClick={() => {
+                  const daily = getDailyAyah();
+                  handleGenerate(daily.surah, daily.ayah);
+                }}
+                disabled={loading}
+                className="w-full py-4 px-6 rounded-2xl border border-[var(--color-gold)]/30 bg-[var(--color-gold)]/5 hover:bg-[var(--color-gold)]/10 transition-all disabled:opacity-50 text-center group"
+              >
+                <p className="text-[10px] text-[var(--color-gold)] uppercase tracking-widest mb-1">Today&apos;s Ayah</p>
+                <p className="text-sm text-gray-300 group-hover:text-white transition-colors">{getDailyAyah().label}</p>
+              </button>
+            </div>
 
             {/* Quick Picks */}
             <div className="w-full max-w-xl mb-8">

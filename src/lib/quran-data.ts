@@ -140,6 +140,29 @@ export const POPULAR_AYAHS = [
   { surah: 33, ayah: 56, label: "Allah sends salawat upon the Prophet" },
 ];
 
+// Daily Ayah — deterministic based on date, cycles through popular ayahs
+export function getDailyAyah(): { surah: number; ayah: number; label: string } {
+  const today = new Date();
+  const dayOfYear = Math.floor(
+    (today.getTime() - new Date(today.getFullYear(), 0, 0).getTime()) / 86400000
+  );
+  // Combine all collection ayahs + popular ayahs for a rich daily rotation
+  const allAyahs = [
+    ...POPULAR_AYAHS,
+    { surah: 39, ayah: 53, label: "Do not despair of Allah's mercy" },
+    { surah: 7, ayah: 156, label: "My mercy encompasses all things" },
+    { surah: 24, ayah: 35, label: "Allah is the Light" },
+    { surah: 21, ayah: 107, label: "A mercy to the worlds" },
+    { surah: 14, ayah: 7, label: "If you are grateful, I will increase you" },
+    { surah: 3, ayah: 200, label: "Be patient and persevere" },
+    { surah: 48, ayah: 29, label: "Muhammad is the Messenger of Allah" },
+    { surah: 93, ayah: 11, label: "Proclaim the blessings of your Lord" },
+    { surah: 21, ayah: 87, label: "There is no deity except You" },
+    { surah: 42, ayah: 52, label: "You guide to a straight path" },
+  ];
+  return allAyahs[dayOfYear % allAyahs.length];
+}
+
 // Themed collections for content creators
 export const THEMED_COLLECTIONS = [
   {
