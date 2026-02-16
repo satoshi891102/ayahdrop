@@ -42,6 +42,26 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <link rel="apple-touch-icon" href="/icon-192.png" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebApplication",
+              "name": "AyahDrop",
+              "url": "https://ayahdrop.vercel.app",
+              "description": "Generate beautiful Quran verse cards for social media with verified Arabic text and translations.",
+              "applicationCategory": "DesignApplication",
+              "operatingSystem": "Web",
+              "offers": {
+                "@type": "Offer",
+                "price": "0",
+                "priceCurrency": "USD"
+              },
+              "featureList": "Quran verse cards, Arabic text, 8 card styles, PNG export, 114 surahs, themed collections"
+            })
+          }}
+        />
       </head>
       <body className="antialiased">
         {children}
