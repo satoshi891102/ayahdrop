@@ -4,6 +4,7 @@ export interface CardStyle {
   premium: boolean;
   // Background
   bgGradient: string;
+  bgPattern?: string; // CSS pattern overlay
   // Text colors
   arabicColor: string;
   translationColor: string;
@@ -11,6 +12,7 @@ export interface CardStyle {
   // Decorative
   borderStyle?: string;
   ornamentColor?: string;
+  ornamentStyle?: "corners" | "frame" | "minimal" | "arch";
   // Font sizing
   arabicSize: string;
   translationSize: string;
@@ -26,6 +28,7 @@ export const CARD_STYLES: CardStyle[] = [
     translationColor: "#E8E8E8",
     referenceColor: "#8B8B8B",
     ornamentColor: "#C9A84C",
+    ornamentStyle: "corners",
     arabicSize: "1.75rem",
     translationSize: "1rem",
   },
@@ -38,6 +41,7 @@ export const CARD_STYLES: CardStyle[] = [
     translationColor: "#333333",
     referenceColor: "#888888",
     ornamentColor: "#C9A84C",
+    ornamentStyle: "frame",
     arabicSize: "1.75rem",
     translationSize: "1rem",
   },
@@ -50,6 +54,7 @@ export const CARD_STYLES: CardStyle[] = [
     translationColor: "#D4E8D4",
     referenceColor: "#8BAF8B",
     ornamentColor: "#E8D5A3",
+    ornamentStyle: "arch",
     arabicSize: "1.75rem",
     translationSize: "1rem",
   },
@@ -62,6 +67,7 @@ export const CARD_STYLES: CardStyle[] = [
     translationColor: "#FFF8F0",
     referenceColor: "#E8D4C0",
     ornamentColor: "#FFFFFF",
+    ornamentStyle: "minimal",
     arabicSize: "1.75rem",
     translationSize: "1rem",
   },

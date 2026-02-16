@@ -141,12 +141,18 @@ export default function Home() {
               <span className="text-2xl">🕌</span>
               <span className="text-xl font-semibold tracking-tight">AyahDrop</span>
             </div>
-            <button
-              onClick={handleRandomAyah}
-              className="px-4 py-2 text-sm rounded-full border border-white/20 hover:bg-white/10 transition-colors"
-            >
-              Random Ayah ✨
-            </button>
+            <div className="flex items-center gap-4">
+              <nav className="hidden sm:flex gap-4 text-sm text-gray-400">
+                <a href="/browse" className="hover:text-white transition-colors">Browse</a>
+                <a href="/collections" className="hover:text-white transition-colors">Collections</a>
+              </nav>
+              <button
+                onClick={handleRandomAyah}
+                className="px-4 py-2 text-sm rounded-full border border-white/20 hover:bg-white/10 transition-colors"
+              >
+                Random Ayah ✨
+              </button>
+            </div>
           </header>
 
           {/* Hero */}

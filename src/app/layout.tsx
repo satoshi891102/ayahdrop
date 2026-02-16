@@ -5,6 +5,7 @@ export const metadata: Metadata = {
   title: "AyahDrop — Beautiful Quran Verse Cards for Social Media",
   description: "Generate stunning Quran verse cards with perfect Arabic text, verified translations, and beautiful designs. 114 surahs, 8 styles, instant PNG download. Share Islamic content that inspires.",
   keywords: "Quran, Islamic content, verse cards, social media, Islamic design, ayah, Muslim content creator, Quran quotes, Islamic art, ayah cards",
+  metadataBase: new URL("https://ayahdrop.vercel.app"),
   openGraph: {
     title: "AyahDrop — Beautiful Quran Verse Cards",
     description: "Generate stunning Quran verse cards for social media in seconds. 114 surahs, 8 card styles, instant PNG download.",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
     url: "https://ayahdrop.vercel.app",
     images: [
       {
-        url: "https://ayahdrop.vercel.app/og-image.png",
+        url: "/api/og",
         width: 1200,
         height: 630,
         alt: "AyahDrop — Beautiful Quran Verse Cards for Social Media",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "AyahDrop — Beautiful Quran Verse Cards",
     description: "Generate stunning Quran verse cards for social media in seconds",
-    images: ["https://ayahdrop.vercel.app/og-image.png"],
+    images: ["/api/og"],
   },
 };
 
