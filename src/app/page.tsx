@@ -295,9 +295,16 @@ export default function Home() {
             )}
           </div>
 
+          {/* Mobile nav */}
+          <div className="sm:hidden flex justify-center gap-6 py-6 text-sm text-gray-400">
+            <a href="/browse" className="hover:text-white transition-colors">Browse Surahs</a>
+            <a href="/collections" className="hover:text-white transition-colors">Collections</a>
+          </div>
+
           {/* Footer */}
-          <footer className="text-center py-6 text-xs text-gray-600">
-            Quran text via AlQuran.cloud · Sahih International translation · Made with reverence
+          <footer className="text-center py-6 text-xs text-gray-600 space-y-1">
+            <p>Quran text via AlQuran.cloud · Sahih International translation</p>
+            <p>Made with reverence · <a href="/browse" className="text-[var(--color-gold)]/40 hover:text-[var(--color-gold)]">114 Surahs</a> · <a href="/collections" className="text-[var(--color-gold)]/40 hover:text-[var(--color-gold)]">6 Collections</a></p>
           </footer>
         </div>
       )}
@@ -439,17 +446,31 @@ export default function Home() {
               {/* Actions */}
               <div className="mt-6 space-y-3">
                 <button
-                  onClick={() => handleGenerate()}
-                  className="w-full py-2.5 rounded-xl text-sm border border-white/10 hover:bg-white/5 transition-colors"
-                >
-                  Regenerate with Different Ayah
-                </button>
-                <button
                   onClick={handleRandomAyah}
                   className="w-full py-2.5 rounded-xl text-sm border border-white/10 hover:bg-white/5 transition-colors"
                 >
                   Random Ayah ✨
                 </button>
+                <button
+                  onClick={() => setState("home")}
+                  className="w-full py-2.5 rounded-xl text-sm border border-white/10 hover:bg-white/5 transition-colors"
+                >
+                  Pick Another Ayah
+                </button>
+                <div className="flex gap-2 pt-2">
+                  <a
+                    href="/browse"
+                    className="flex-1 py-2 rounded-xl text-xs text-center text-gray-500 hover:text-gray-300 border border-white/5 hover:border-white/10 transition-colors"
+                  >
+                    Browse Surahs
+                  </a>
+                  <a
+                    href="/collections"
+                    className="flex-1 py-2 rounded-xl text-xs text-center text-gray-500 hover:text-gray-300 border border-white/5 hover:border-white/10 transition-colors"
+                  >
+                    Collections
+                  </a>
+                </div>
               </div>
             </div>
           </div>
